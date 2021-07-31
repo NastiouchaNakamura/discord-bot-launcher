@@ -6,13 +6,13 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-public abstract class TtListener extends ListenerAdapter {
+public abstract class AbstractBaseListener extends ListenerAdapter {
     // Attributs
     private final long idBot;
     private final JDA jda;
 
     // Constructeurs
-    public TtListener(long idBot, @Nonnull final JDA jda) {
+    public AbstractBaseListener(long idBot, @Nonnull final JDA jda) {
         this.idBot = idBot;
         this.jda = jda;
     }

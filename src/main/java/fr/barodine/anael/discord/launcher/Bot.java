@@ -11,13 +11,13 @@ class Bot {
     // Attributs
     private final long id;
     private final JDA jda;
-    private final TtListener listener;
+    private final AbstractBaseListener listener;
 
     // Constructeurs
     public Bot(
             long id,
             @Nonnull final String discordToken,
-            @Nonnull final Class<? extends TtListener> listenerClass
+            @Nonnull final Class<? extends AbstractBaseListener> listenerClass
     ) throws LoginException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         this.id = id;
         this.jda = JDABuilder.createDefault(discordToken).build();

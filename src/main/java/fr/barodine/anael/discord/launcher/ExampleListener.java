@@ -5,7 +5,7 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import org.jetbrains.annotations.NotNull;
 
-public class ExampleListener extends TtListener {
+public class ExampleListener extends AbstractBaseListener {
     // Constructeurs
     public ExampleListener(long idBot, @NotNull JDA jda) {
         super(idBot, jda);

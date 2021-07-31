@@ -28,15 +28,15 @@ class Fetcher {
             try {
                 Class<?> listenerClass = Class.forName(result.getString(3));
 
-                if (!TtListener.class.isAssignableFrom(listenerClass)) {
-                    Launcher.logger.log("Class '" + result.getString(3) + "' not extending " + TtListener.class.getName());
+                if (!AbstractBaseListener.class.isAssignableFrom(listenerClass)) {
+                    Launcher.logger.log("Class '" + result.getString(3) + "' not extending " + AbstractBaseListener.class.getName());
                     continue;
                 }
 
                 bots.add(new Bot(
                         result.getLong(1),
                         result.getString(2),
-                        (Class<? extends TtListener>) Class.forName(result.getString(3))
+                        (Class<? extends AbstractBaseListener>) Class.forName(result.getString(3))
                 ));
             } catch (ClassNotFoundException e) {
                 Launcher.logger.log("Class '" + result.getString(3) + "' not found");
