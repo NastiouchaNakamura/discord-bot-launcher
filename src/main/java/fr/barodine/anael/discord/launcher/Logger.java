@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
-class Logger {
+/* package private */ class Logger {
     // Attributs
     private final Database bdd;
 

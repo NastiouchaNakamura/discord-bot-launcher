@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import javax.security.auth.login.LoginException;
 import java.lang.reflect.InvocationTargetException;
 
-class Bot {
+/* package private */ class Bot {
     // Attributs
     private final long id;
     private final JDA jda;
