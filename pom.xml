@@ -4,9 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <name>Discord Bot Launcher</name>
+    <description>
+        Little utility library to make easy the hosting of multiple Discord bots, with different listeners, on a single
+        online Java worker.
+    </description>
+    <url>https://github.com/NastiouchaNakamura/discord-bot-launcher</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <groupId>fr.barodine.anael</groupId>
     <artifactId>discord-bot-launcher</artifactId>
-    <version>1.1</version>
+    <version>1.0</version>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
