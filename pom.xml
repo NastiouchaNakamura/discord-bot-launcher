@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.bde_tribu_terre</groupId>
-    <artifactId>discord-tt-bot</artifactId>
-    <version>1.0</version>
+    <groupId>fr.barodine.anael</groupId>
+    <artifactId>discord-bot-launcher</artifactId>
+    <version>1.1</version>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
