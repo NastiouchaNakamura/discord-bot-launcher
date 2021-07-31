@@ -18,6 +18,10 @@ public abstract class AbstractBaseListener extends ListenerAdapter {
     }
 
     // Getteurs
+    public long getIdBot() {
+        return this.idBot;
+    }
+
     public JDA getJda() {
         return this.jda;
     }
