@@ -29,7 +29,7 @@ import java.util.List;
                 Class<?> listenerClass = Class.forName(result.getString(3));
 
                 if (!AbstractBaseListener.class.isAssignableFrom(listenerClass)) {
-                    Launcher.logger.log("Class '" + result.getString(3) + "' not extending " + AbstractBaseListener.class.getName());
+                    Launcher.logger.log("Bot " + result.getString(1) + ": Class '" + result.getString(3) + "' not extending " + AbstractBaseListener.class.getName());
                     continue;
                 }
 
@@ -39,9 +39,9 @@ import java.util.List;
                         (Class<? extends AbstractBaseListener>) Class.forName(result.getString(3))
                 ));
             } catch (ClassNotFoundException e) {
-                Launcher.logger.log("Class '" + result.getString(3) + "' not found");
+                Launcher.logger.log("Bot " + result.getString(1) + ": Class '" + result.getString(3) + "' not found");
             } catch (Exception e) {
-                Launcher.logger.log("Search of class '" + result.getString(3) + "' caused exception. " + e.getClass() + ": " + e.getMessage());
+                Launcher.logger.log("Bot " + result.getString(1) + ": Search of class '" + result.getString(3) + "' caused exception. " + e.getClass() + ": " + e.getMessage());
                 e.printStackTrace();
             }
         }
