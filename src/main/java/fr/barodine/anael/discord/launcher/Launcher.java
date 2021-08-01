@@ -63,8 +63,9 @@ public class Launcher {
         for (Bot bot : bots) {
             try {
                 bot.launch();
+                logger.log("Successfully launched " + bots.size() + " bots");
             } catch (Exception exception) {
-                logger.log(0, "Exception occurred when launching bot " + bot.getId() + ". " + exception.getClass().getName() + ": " + exception.getMessage());
+                logger.log("Exception occurred when launching bot " + bot.getId() + ". " + exception.getClass().getName() + ": " + exception.getMessage());
             }
         }
     }
