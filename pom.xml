@@ -6,8 +6,7 @@
 
     <name>Discord Bot Launcher</name>
     <description>
-        Little utility library to make easy the hosting of multiple Discord bots, with different listeners, on a single
-        online Java worker.
+        Utility library for hosting of multiple Discord bots, with different listeners, on a single online Java worker.
     </description>
     <url>https://github.com/NastiouchaNakamura/discord-bot-launcher</url>
 
