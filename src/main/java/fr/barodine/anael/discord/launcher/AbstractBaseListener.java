@@ -36,6 +36,10 @@ public abstract class AbstractBaseListener extends ListenerAdapter {
         return this.jda;
     }
 
+    public Map<String, String> getVariables() {
+        return this.variables;
+    }
+
     public String getVariable(@Nonnull final String key) {
         return this.variables.get(key);
     }
