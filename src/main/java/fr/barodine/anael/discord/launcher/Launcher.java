@@ -12,14 +12,8 @@ public class Launcher {
         // Vérification que les variables d'environnement sont paramétrées.
         String prefix = "DISCORD_BOT_LAUNCHER_MAIN_";
 
-        String databaseDomain = System.getenv(prefix + "SQL_DATABASE_DOMAIN");
-        if (databaseDomain == null) System.err.println("Main database domain environment variable '" + prefix + "SQL_DATABASE_DOMAIN" + "' is undefined or null");
-
-        String databasePort = System.getenv(prefix + "SQL_DATABASE_PORT");
-        if (databasePort == null) System.err.println("Main database port environment variable '" + prefix + "SQL_DATABASE_PORT" + "' is undefined or null");
-
-        String databaseDb = System.getenv(prefix + "SQL_DATABASE_DB");
-        if (databaseDb == null) System.err.println("Main database target database environment variable '" + prefix + "SQL_DATABASE_DB" + "' is undefined or null");
+        String databaseUrl = System.getenv(prefix + "SQL_DATABASE_URL");
+        if (databaseUrl == null) System.err.println("Main database URL environment variable '" + prefix + "SQL_DATABASE_URL" + "' is undefined or null");
 
         String databaseUser = System.getenv(prefix + "SQL_DATABASE_USER");
         if (databaseUser == null) System.err.println("Main database user environment variable '" + prefix + "SQL_DATABASE_USER" + "' is undefined or null");
@@ -27,7 +21,7 @@ public class Launcher {
         String databasePasswd = System.getenv(prefix + "SQL_DATABASE_PASSWD");
         if (databasePasswd == null) System.err.println("Main database password environment variable '" + prefix + "SQL_DATABASE_PASSWD" + "' is undefined or null");
 
-        if (databaseDomain == null || databasePort == null || databaseDb == null || databaseUser == null || databasePasswd == null) {
+        if (databaseUrl == null || databaseUser == null || databasePasswd == null) {
             System.err.println("Please specify all above environment variables");
             System.exit(1);
         }
@@ -35,9 +29,7 @@ public class Launcher {
         // Instantiation du logger et du fetcher.
         try {
             Database bddMySQL = new Database(
-                    databaseDomain,
-                    databasePort,
-                    databaseDb,
+                    databaseUrl,
                     databaseUser,
                     databasePasswd
             );

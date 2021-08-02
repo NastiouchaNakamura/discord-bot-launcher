@@ -11,15 +11,13 @@ import java.sql.SQLException;
 
     // Constructeurs
     public Database(
-            @Nonnull final String domain,
-            @Nonnull final String port,
-            @Nonnull final String db,
+            @Nonnull final String url,
             @Nonnull final String user,
             @Nonnull final String passwd
     ) throws SQLException {
         // Class.forName("com.mysql.jdbc.Driver");
         this.connection = DriverManager.getConnection(
-                "jdbc:mysql://" + domain + ":" + port + "/" + db + "?useJDBCCompliantTimezoneShift=true&serverTimezone=UTC",
+                url,
                 user,
                 passwd
         );
