@@ -33,7 +33,7 @@ import java.sql.Timestamp;
     }
 
     void log(@NotNull final String message) {
-        System.out.println("[MAIN] " + message);
+        System.out.println("[LAUNCHER] " + message);
         try {
             PreparedStatement preparedStatement = this.bdd.getConnection().prepareStatement(
                     "INSERT INTO ttbot_global_log (message, time) VALUES (?, ?);"
