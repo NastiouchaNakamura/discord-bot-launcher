@@ -1,7 +1,5 @@
 package fr.barodine.anael.discord.launcher;
 
-import org.jetbrains.annotations.NotNull;
-
 import javax.annotation.Nonnull;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +16,7 @@ import java.sql.Timestamp;
     }
 
     // Méthodes
-    public void log(final long idBot, @NotNull final String message) {
+    public void log(final long idBot, @Nonnull final String message) {
         System.out.println("[BOT_" + idBot + "] " + message);
         try (Connection connection = this.bdd.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(
@@ -33,7 +31,7 @@ import java.sql.Timestamp;
         }
     }
 
-    void log(@NotNull final String message) {
+    void log(@Nonnull final String message) {
         System.out.println("[LAUNCHER] " + message);
         try (Connection connection = this.bdd.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(

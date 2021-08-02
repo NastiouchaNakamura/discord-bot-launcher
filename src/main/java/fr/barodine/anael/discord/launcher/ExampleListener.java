@@ -3,16 +3,17 @@ package fr.barodine.anael.discord.launcher;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.ReadyEvent;
-import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 public class ExampleListener extends AbstractBaseListener {
     // Constructeurs
-    public ExampleListener(long idBot, @NotNull JDA jda) {
+    public ExampleListener(long idBot, @Nonnull JDA jda) {
         super(idBot, jda);
     }
 
     @Override
-    public void onReady(@NotNull ReadyEvent event) {
+    public void onReady(@Nonnull ReadyEvent event) {
         if (this.getJda().getGuilds().isEmpty()) {
             this.log("Example listener successfully executed, no guild or no text channel found in reach");
         } else {

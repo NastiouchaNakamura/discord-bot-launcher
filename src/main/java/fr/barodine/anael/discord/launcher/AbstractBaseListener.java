@@ -2,7 +2,6 @@ package fr.barodine.anael.discord.launcher;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.HashMap;
@@ -45,7 +44,7 @@ public abstract class AbstractBaseListener extends ListenerAdapter {
     }
 
     // Méthodes
-    public void log(@NotNull final String message) {
+    public void log(@Nonnull final String message) {
         Launcher.logger.log(this.idBot, message);
     }
 }
