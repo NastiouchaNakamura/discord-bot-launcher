@@ -60,6 +60,6 @@ public class Launcher {
                 logger.log("Exception occurred when launching bot " + bot.getId() + ". " + exception.getClass().getName() + ": " + exception.getMessage());
             }
         }
-        logger.log("Successfully launched " + launchedBots + " bots");
+        logger.log("Successfully launched " + launchedBots + " bots, failed to launch " + (bots.size() - launchedBots) + " bots");
     }
 }

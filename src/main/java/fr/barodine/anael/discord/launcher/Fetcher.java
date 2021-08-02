@@ -20,12 +20,13 @@ import java.util.List;
     // Méthodes
     public List<Bot> fetchBots() throws SQLException {
         List<Bot> bots = new ArrayList<>();
-        
+
         try (Connection connection = this.bdd.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "SELECT id, discord_bot_token, listener_class FROM ttbot_bots;"
             );
             ResultSet result = preparedStatement.executeQuery();
+            int failedBots = 0;
             while (result.next()) {
                 try {
                     Class<?> listenerClass = Class.forName(result.getString(3));
@@ -42,8 +43,10 @@ import java.util.List;
                     ));
                 } catch (ClassNotFoundException e) {
                     Launcher.logger.log("Bot " + result.getString(1) + ": Class '" + result.getString(3) + "' not found");
+                    failedBots++;
                 } catch (Exception e) {
                     Launcher.logger.log("Bot " + result.getString(1) + ": Search of class '" + result.getString(3) + "' caused exception. " + e.getClass() + ": " + e.getMessage());
+                    failedBots++;
                     e.printStackTrace();
                 }
             }
@@ -51,7 +54,7 @@ import java.util.List;
             result.close();
             preparedStatement.close();
 
-            Launcher.logger.log("Successfully fetched " + bots.size() + " bots");
+            Launcher.logger.log("Successfully fetched " + bots.size() + " bots, failed to fetch " + failedBots + " bots");
         }
 
         return bots;
