@@ -36,7 +36,7 @@ import java.util.List;
                 bots.add(new Bot(
                         result.getLong(1),
                         result.getString(2),
-                        (Class<? extends AbstractBaseListener>) Class.forName(result.getString(3))
+                        (Class<? extends AbstractBaseListener>) listenerClass
                 ));
             } catch (ClassNotFoundException e) {
                 Launcher.logger.log("Bot " + result.getString(1) + ": Class '" + result.getString(3) + "' not found");
