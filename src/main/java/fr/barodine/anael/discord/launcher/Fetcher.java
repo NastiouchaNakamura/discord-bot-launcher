@@ -49,6 +49,8 @@ import java.util.List;
         result.close();
         preparedStatement.close();
 
+        Launcher.logger.log("Successfully fetched " + bots.size() + " bots");
+
         return bots;
     }
 }
