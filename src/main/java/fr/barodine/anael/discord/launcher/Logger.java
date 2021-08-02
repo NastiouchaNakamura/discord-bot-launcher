@@ -3,6 +3,7 @@ package fr.barodine.anael.discord.launcher;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -19,8 +20,8 @@ import java.sql.Timestamp;
     // Méthodes
     public void log(final long idBot, @NotNull final String message) {
         System.out.println("[BOT_" + idBot + "] " + message);
-        try {
-            PreparedStatement preparedStatement = this.bdd.getConnection().prepareStatement(
+        try (Connection connection = this.bdd.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(
                     "INSERT INTO ttbot_bots_log (id_bot, message, time) VALUES (?, ?, ?);"
             );
             preparedStatement.setLong(1, idBot);
@@ -34,8 +35,8 @@ import java.sql.Timestamp;
 
     void log(@NotNull final String message) {
         System.out.println("[LAUNCHER] " + message);
-        try {
-            PreparedStatement preparedStatement = this.bdd.getConnection().prepareStatement(
+        try (Connection connection = this.bdd.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(
                     "INSERT INTO ttbot_global_log (message, time) VALUES (?, ?);"
             );
             preparedStatement.setString(1, message);

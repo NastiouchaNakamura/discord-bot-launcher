@@ -27,20 +27,19 @@ public class Launcher {
         }
 
         // Instantiation du logger et du fetcher.
-        try {
-            Database bddMySQL = new Database(
-                    databaseUrl,
-                    databaseUser,
-                    databasePasswd
-            );
+        Database bddMySQL = new Database(
+                databaseUrl,
+                databaseUser,
+                databasePasswd
+        );
 
-            logger = new Logger(bddMySQL);
-            fetcher = new Fetcher(bddMySQL);
-        } catch (SQLException sqlException) {
+        if (!bddMySQL.testConnexion()) {
             System.err.println("Unable to connect to database");
-            sqlException.printStackTrace();
             System.exit(1);
         }
+
+        logger = new Logger(bddMySQL);
+        fetcher = new Fetcher(bddMySQL);
 
         // Récupération des bots.
         List<Bot> bots = new ArrayList<>();
