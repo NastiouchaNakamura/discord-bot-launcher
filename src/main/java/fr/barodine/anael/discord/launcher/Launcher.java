@@ -52,13 +52,15 @@ public class Launcher {
         }
 
         // Lancement des bots.
+        int launchedBots = 0;
         for (Bot bot : bots) {
             try {
                 bot.launch();
-                logger.log("Successfully launched " + bots.size() + " bots");
+                launchedBots++;
             } catch (Exception exception) {
                 logger.log("Exception occurred when launching bot " + bot.getId() + ". " + exception.getClass().getName() + ": " + exception.getMessage());
             }
         }
+        logger.log("Successfully launched " + launchedBots + " bots");
     }
 }
