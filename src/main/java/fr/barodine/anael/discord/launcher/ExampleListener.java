@@ -1,15 +1,16 @@
 package fr.barodine.anael.discord.launcher;
 
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.ReadyEvent;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.annotation.Nonnull;
+import java.util.Set;
 
 public class ExampleListener extends AbstractBaseListener {
     // Constructeurs
-    public ExampleListener(long idBot, @Nonnull JDA jda) {
-        super(idBot, jda);
+    public ExampleListener(long idBot) {
+        super(idBot, Set.of(GatewayIntent.MESSAGE_CONTENT));
     }
 
     @Override

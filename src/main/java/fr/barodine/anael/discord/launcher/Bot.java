@@ -2,6 +2,7 @@ package fr.barodine.anael.discord.launcher;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.annotation.Nonnull;
 import javax.security.auth.login.LoginException;
@@ -20,8 +21,12 @@ import java.lang.reflect.InvocationTargetException;
             @Nonnull final Class<? extends AbstractBaseListener> listenerClass
     ) throws LoginException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         this.id = id;
-        this.jda = JDABuilder.createDefault(discordToken).build();
-        this.listener = listenerClass.getConstructor(long.class, JDA.class).newInstance(id, this.jda);
+        this.listener = listenerClass.getConstructor(long.class).newInstance(id);
+        this.jda = JDABuilder
+                .create(discordToken, this.listener.getGatewayIntents())
+                .disableCache(CacheFlag.ACTIVITY, CacheFlag.VOICE_STATE, CacheFlag.EMOJI, CacheFlag.STICKER, CacheFlag.CLIENT_STATUS, CacheFlag.ONLINE_STATUS)
+                .build();
+        this.listener.setJda(this.jda);
     }
 
     // Getteurs
