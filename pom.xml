@@ -20,7 +20,7 @@
 
     <groupId>fr.barodine.anael</groupId>
     <artifactId>discord-bot-launcher</artifactId>
-    <version>1.3a</version>
+    <version>1.4</version>
 
     <distributionManagement>
         <repository>
@@ -34,8 +34,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
-        <jda.version>4.3.0_279</jda.version>
-        <mysql-connector-version>8.0.26</mysql-connector-version>
+        <jda.version>5.0.0-alpha.18</jda.version>
+        <mysql-connector.version>8.0.30</mysql-connector.version>
+        <mariadb-java-client.version>3.0.6</mariadb-java-client.version>
     </properties>
 
     <repositories>
@@ -61,7 +62,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-version}</version>
+            <version>${mysql-connector.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>${mariadb-java-client.version}</version>
         </dependency>
         <dependency>
             <groupId>net.dv8tion</groupId>
