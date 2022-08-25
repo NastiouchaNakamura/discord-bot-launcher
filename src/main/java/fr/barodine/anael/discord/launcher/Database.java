@@ -10,6 +10,7 @@ import java.sql.SQLException;
     private final String url;
     private final String user;
     private final String passwd;
+    private SQLException sqlException;
 
     // Constructeurs
     public Database(@Nonnull final String url, @Nonnull final String user, @Nonnull final String passwd) {
@@ -28,11 +29,16 @@ import java.sql.SQLException;
         );
     }
 
+    public SQLException getSqlException() {
+        return this.sqlException;
+    }
+
     // Méthodes
     public boolean testConnexion() {
         try (Connection connection = this.getConnection()) {
             return connection.isValid(0);
         } catch (SQLException sqlException) {
+            this.sqlException = sqlException;
             return false;
         }
     }

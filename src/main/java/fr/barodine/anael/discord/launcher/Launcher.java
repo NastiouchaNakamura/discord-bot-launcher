@@ -34,7 +34,11 @@ public class Launcher {
         );
 
         if (!bddMySQL.testConnexion()) {
-            System.err.println("Unable to connect to database");
+            if (bddMySQL.getSqlException() == null) {
+                System.err.println("Unable to connect to database; no SQL exception message given");
+            } else {
+                System.err.println("Unable to connect to database; SQL exception message: " + bddMySQL.getSqlException());
+            }
             System.exit(1);
         }
 
